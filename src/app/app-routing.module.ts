@@ -1,13 +1,15 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { EndpointDataResolver } from './resolvers/endpoint-data-resolver';
 
 const routes: Routes = [
   {
-    path: '',
-    loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
+    path: '', 
+    resolve: {
+      endpointData: EndpointDataResolver
+    },
+    loadChildren: () => import('./views/tabs/tabs.module').then(m => m.TabsPageModule)
   }
-
-
 ];
 @NgModule({
   imports: [

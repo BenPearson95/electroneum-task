@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-toolbar color="primary">    
+    <ion-grid class="ion-text-center ion-no-padding">
+      <ion-row>
+        <ion-col>
+          <div (click)="this.closeClicked()">
+            <p class="header-para ion-no-margin">Close</p>
+          </div>
+        </ion-col>
+        <ion-col size="8">
+          <div>
+            <p class="header-para ion-no-margin">Transactions</p>
+          </div>
+        </ion-col>
+        <ion-col class="">
+          <div>
+            <ion-icon class="ion-no-padding icon-position" name="refresh-outline">
+            </ion-icon>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen] = true>
+  <ion-card *ngFor="let transaction of this.transactionsData" >
+    <ion-card-content>
+      <div [ngSwitch]="transaction.paymentType">
+        <div *ngSwitchCase="1" class="transaction-card-div">
+          <p class="ion-no-margin transaction-titles-left">Received</p>
+          <p class="ion-no-margin transaction-titles-right"> {{transaction.destinationAmount}} ETN</p>
+        </div>
+        <div *ngSwitchCase="2" class="transaction-card-div">
+          <p class="ion-no-margin transaction-titles-left" *ngSwitchCase="2">Sent</p>
+          <p class="ion-no-margin transaction-titles-right"> {{transaction.destinationAmount}} ETN</p>
+          <p class="transaction-to">To: {{transaction.destinationWallet}}</p>
+        </div>
+        <div *ngSwitchCase="3" class="transaction-card-div">
+          <p class="ion-no-margin transaction-titles-left" *ngSwitchCase="3">Top Up - {{transaction.topUpInfo.operatorName}}</p>
+          <p class="ion-no-margin transaction-titles-right"> {{transaction.destinationAmount}} ETN</p>
+        </div>
+      </div>
+      <div [ngSwitch]="transaction.status">
+        <div *ngSwitchCase="1" class="transaction-card-div">
+          <p class="ion-no-margin transaction-date">{{transaction.dateCreated | date:'medium'}}</p>
+          <p class="ion-no-margin transaction-status">
+            <ion-icon class="icon-pending" name="ellipse">
+            </ion-icon>
+            Pending
+          </p>
+        </div>
+        <div *ngSwitchCase="2" class="transaction-card-div">
+          <p class="ion-no-margin transaction-date">{{transaction.dateCreated | date:'medium'}}</p>
+          <p class="ion-no-margin transaction-status">
+            <ion-icon class="icon-complete" name="ellipse">
+            </ion-icon>
+            Complete
+          </p>
+        </div>
+        <div *ngSwitchCase="3" class="transaction-card-div">
+          <p class="ion-no-margin transaction-date">{{transaction.dateCreated | date:'medium'}}</p>
+          <p class="ion-no-margin transaction-status">
+            <ion-icon class="icon-failed" name="ellipse">
+            </ion-icon>
+            Failed
+          </p>
+        </div>
+      </div>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

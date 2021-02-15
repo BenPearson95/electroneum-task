@@ -6,6 +6,10 @@ const routes: Routes = [
   {
     path: '',
     component: WalletPage,
+  },
+  {
+    path: 'transactions',
+    loadChildren: () => import('./transactions/transactions.module').then( m => m.TransactionsPageModule)
   }
 ];
 

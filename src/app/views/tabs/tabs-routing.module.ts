@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { EndpointDataResolver } from '../../resolvers/endpoint-data-resolver';
 import { TabsPage } from './tabs.page';
 
 const routes: Routes = [
@@ -13,6 +14,9 @@ const routes: Routes = [
       },
       {
         path: 'Wallet',
+        resolve: {
+          endpointData: EndpointDataResolver
+        },
         loadChildren: () => import('../wallet/wallet.module').then(m => m.WalletPageModule)
       },
       {
@@ -21,14 +25,14 @@ const routes: Routes = [
       },
       {
         path: '',
-        redirectTo: '/tabs/tab1',
+        redirectTo: '/tabs/Wallet',
         pathMatch: 'full'
       }
     ]
   },
   {
     path: '',
-    redirectTo: '/tabs/tab1',
+    redirectTo: '/tabs/Wallet',
     pathMatch: 'full'
   }
 ];

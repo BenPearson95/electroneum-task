@@ -1,0 +1,105 @@
+@import '../../../theme/variables.scss';
+
+.refresh-icon-margin {
+  margin-left: .2em;
+  margin-top: .1em;
+}
+
+.header-para {
+  // font-size: .9em;
+  color: white;
+}
+
+.custom-avatar {
+  margin: auto;
+  background-color: white;
+  height: 2.75em;
+  width: 2.75em;
+  margin-bottom: .25em;
+}
+
+.avatar-icon {
+  height: 100%;
+  color: black;
+}
+
+.icon-titles {
+  color: white;
+  font-size: .9em;
+}
+
+.sub-titles {
+  // font-weight: 600;
+  // font-size: .8rem;
+  color: black;
+}
+
+.sub-header-grid {
+  border-bottom: solid;
+  border-color: rgba(128, 128, 128, 0.5);
+  border-width: 1px;
+}
+
+.suggestions-card {
+  height: 105px;
+  width: 95px;
+  display: inline-block;
+  margin-inline: .5em;
+}
+
+.horizontal-scroll {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+  margin-left: 3px;
+  margin-right: 3px;
+  margin-bottom: 3px;
+  height: 118px;
+}
+
+.custom-logo-size {
+  max-height: 3em;
+}
+
+.suggestion-name {
+  white-space: normal;
+  font-size: .8em;
+}
+
+.sections-card {
+  height: 85px;
+  width: 110px;
+  display: inline-block;
+  margin-inline: .5em;
+}
+
+.section-name {
+  white-space: normal;
+  font-size: .9em;
+  // font-weight: bold;
+  color: black;
+}
+
+.custom-align-content-vertical { 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.suggestion-subtitles { 
+  margin-left: 10px;
+  margin-top: 8px;
+  margin-bottom: 5px;
+  color: #5f5f5f;
+  font-size: .95em;
+  // font-weight: bold;
+}
+
+ion-content {
+  background-color: #f5f6f8;
+}
+
+ion-header::after {
+  background-image: none;
+  }

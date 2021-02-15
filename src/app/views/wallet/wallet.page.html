@@ -1,0 +1,197 @@
+<!--Header Start-->
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-icon size="large" name="refresh-outline" 
+      class="refresh-icon-margin">
+    </ion-icon>
+    <div>
+      <p class="ion-text-center ion-no-margin header-para">
+        Wallet balance
+      </p>
+      <h3 class="ion-text-center ion-no-margin">
+        {{this.walletData.balance}} ETN
+      </h3>
+      <p class="ion-text-center ion-no-margin header-para">
+        Available balance: {{this.walletData.unlocked_balance}} ETN
+      </p>
+    </div>
+    
+    <ion-grid class="ion-text-center">
+      <ion-row>
+        <ion-col>
+          <div>
+            <ion-avatar class="custom-avatar">
+              <ion-icon size="large" name="arrow-up-outline" 
+                class="avatar-icon">
+              </ion-icon>
+            </ion-avatar>
+              <p class="header-para ion-no-margin">Pay</p>
+          </div>
+        </ion-col>
+        <ion-col>
+          <div>
+            <ion-avatar class="custom-avatar">
+              <ion-icon size="large" name="arrow-down-outline" 
+                class="avatar-icon">
+              </ion-icon>
+            </ion-avatar>
+            <p class="header-para ion-no-margin">Receive</p>
+          </div>
+        </ion-col>
+        <ion-col>
+          <div>
+            <ion-avatar class="custom-avatar">
+              <ion-icon size="large" name="notifications-outline" 
+                class="avatar-icon">
+              </ion-icon>
+            </ion-avatar>
+            <p class="header-para ion-no-margin">Notifications</p>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-header>
+<!--Header End-->
+
+<!--Content Start-->
+<ion-content [fullscreen]="true">
+  
+  <!--Transactions Start-->
+  <ion-grid class="sub-header-grid">
+    <ion-row>
+      <ion-col>
+        <div class="ion-text-uppercase">
+          <span class="sub-titles">Transactions</span>
+        </div>
+        
+      </ion-col>
+      <ion-col class="ion-text-end">
+        <ion-icon [routerLink]="['transactions']" name="arrow-forward-outline">
+      </ion-icon>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-card *ngFor="let transaction of this.sortedTransactionsData" >
+    <ion-card-content>
+      <div [ngSwitch]="transaction.paymentType">
+        <div *ngSwitchCase="1" class="transaction-card-div">
+          <p class="ion-no-margin transaction-titles-left">Received</p>
+          <p class="ion-no-margin transaction-titles-right"> {{transaction.destinationAmount}} ETN</p>
+        </div>
+        <div *ngSwitchCase="2" class="transaction-card-div">
+          <p class="ion-no-margin transaction-titles-left" *ngSwitchCase="2">Sent</p>
+          <p class="ion-no-margin transaction-titles-right"> {{transaction.destinationAmount}} ETN</p>
+        </div>
+        <div *ngSwitchCase="3" class="transaction-card-div">
+          <p class="ion-no-margin transaction-titles-left" *ngSwitchCase="3">Top Up - {{transaction.topUpInfo.operatorName}}</p>
+          <p class="ion-no-margin transaction-titles-right"> {{transaction.destinationAmount}} ETN</p>
+        </div>
+      </div>
+      <div [ngSwitch]="transaction.status">
+        <div *ngSwitchCase="1" class="transaction-card-div">
+          <p class="ion-no-margin transaction-date">{{transaction.dateCreated | date:'medium'}}</p>
+          <p class="ion-no-margin transaction-status">
+            <ion-icon class="icon-pending" name="ellipse">
+            </ion-icon>
+            Pending
+          </p>
+        </div>
+        <div *ngSwitchCase="2" class="transaction-card-div">
+          <p class="ion-no-margin transaction-date">{{transaction.dateCreated | date:'medium'}}</p>
+          <p class="ion-no-margin transaction-status">
+            <ion-icon class="icon-complete" name="ellipse">
+            </ion-icon>
+            Complete
+          </p>
+        </div>
+        <div *ngSwitchCase="3" class="transaction-card-div">
+          <p class="ion-no-margin transaction-date">{{transaction.dateCreated | date:'medium'}}</p>
+          <p class="ion-no-margin transaction-status">
+            <ion-icon class="icon-failed" name="ellipse">
+            </ion-icon>
+            Failed
+          </p>
+        </div>
+      </div>
+    </ion-card-content>
+  </ion-card>
+  <!--Transactions End-->
+
+  <!--Pay With ETN Start-->
+  <ion-grid class="sub-header-grid">
+    <ion-row>
+      <ion-col>
+        <div class="ion-text-uppercase">
+          <span class="sub-titles">Pay With ETN</span>
+        </div>
+        
+      </ion-col>
+      <ion-col class="ion-text-end">
+        <ion-icon name="help-circle-outline"></ion-icon>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <div>
+    <ion-grid class="ion-no-padding">
+      <ion-row>
+        <ion-col>
+          <p class="suggestion-subtitles ion-no-margin">
+            Available in United Kingdom
+          </p>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <div class="horizontal-scroll">
+          <ion-card class="suggestions-card" *ngFor="let suggestion of this.payWithETNData.suggestions">
+            <ion-card-content class="custom-align-content-vertical">
+              <div>
+                <div>
+                  <img class="custom-logo-size" src="{{suggestion.logo}}">
+                </div>
+                <div class="ion-text-center">
+                  <p class="suggestion-name ion-no-margin">{{suggestion.name}}</p>
+                </div>
+              </div>
+            </ion-card-content>
+          </ion-card>
+        </div>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <p class="suggestion-subtitles ion-no-margin">
+            All categories
+          </p>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <div class="horizontal-scroll">
+          <ion-card class="sections-card" *ngFor="let section of this.payWithETNData.sections">
+            <ion-card-content class="custom-align-content-vertical">
+              <div>
+                <div [ngSwitch]="section.type" >
+                  <img 
+                    *ngSwitchCase="'utility'" 
+                    class="custom-logo-size" 
+                    src="../../assets/light-bulb-2-xxl.png">
+                  <img 
+                    *ngSwitchCase="'top-up'" 
+                    class="custom-logo-size" 
+                    src="../../assets/up.png">
+                </div>
+                <div class="ion-text-center">
+                  <p class="section-name ion-no-margin">{{section.name}}</p>
+                </div>
+              </div>
+            </ion-card-content>
+          </ion-card>
+        </div>
+      </ion-row>
+    </ion-grid>
+  </div>
+  <!--Pay With ETN End-->
+
+</ion-content>
+<!--Content End-->
