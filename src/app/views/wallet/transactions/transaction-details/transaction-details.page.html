@@ -21,7 +21,7 @@
 
 <ion-content>
 
-  <ion-item-divider class="">
+  <ion-item-divider>
     <div *ngIf="this.transaction.paymentType === 1"  class="details-title">
       <h5 class="ion-no-margin">Received {{transaction.destinationAmount}} ETN</h5>
     </div>
@@ -39,21 +39,21 @@
       <p class="ion-no-margin details-subtitles">
         Status
       </p>
-      <div *ngSwitchCase="1" class="">
+      <div *ngSwitchCase="1">
         <p class="ion-no-margin transaction-status">
           <ion-icon class="icon-pending" name="ellipse">
           </ion-icon>
           Pending
         </p>
       </div>
-      <div *ngSwitchCase="2" class="">
+      <div *ngSwitchCase="2">
         <p class="ion-no-margin transaction-status">
           <ion-icon class="icon-complete" name="ellipse">
           </ion-icon>
           Complete
         </p>
       </div>
-      <div *ngSwitchCase="3" class="">
+      <div *ngSwitchCase="3">
         <p class="ion-no-margin transaction-status">
           <ion-icon class="icon-failed" name="ellipse">
           </ion-icon>
@@ -64,21 +64,21 @@
   </ion-item-divider>
 
   <ion-item-divider *ngIf="this.transaction.paymentType === 2" >
-    <div class="ion-padding-end details-item-padding" style="max-width: 100%">
+    <div class="ion-padding-end details-item-padding">
       <p class="ion-no-margin details-subtitles">To</p>
       <p class="ion-no-margin details-content">{{transaction.destinationWallet}}</p>
     </div>
   </ion-item-divider>
 
   <ion-item-divider>
-    <div class="ion-padding-end details-item-padding" style="max-width: 100%">
+    <div class="ion-padding-end details-item-padding">
       <p class="ion-no-margin details-subtitles">Transaction Hash (TxHash)</p>
       <p class="ion-no-margin details-content">{{transaction.txHash}}</p>
     </div>
   </ion-item-divider>
 
   <ion-item-divider>
-    <div class="ion-padding-end details-item-padding" style="max-width: 100%">
+    <div class="ion-padding-end details-item-padding">
       <p class="ion-no-margin details-subtitles">Tx Private Key</p>
       <p class="ion-no-margin details-content">{{transaction.txKey}}</p>
       <ion-button color="primary" class="button-outline ion-text-capitalize">Prove sending</ion-button>
@@ -86,14 +86,14 @@
   </ion-item-divider>
 
   <ion-item-divider>
-    <div class="ion-padding-end details-item-padding" style="max-width: 100%">
+    <div class="ion-padding-end details-item-padding">
       <p class="ion-no-margin details-subtitles">Payment ID</p>
       <p class="ion-no-margin details-content">{{transaction.id}}</p>
     </div>
   </ion-item-divider>
 
   <ion-item-divider>
-    <div class="ion-padding-end details-item-padding" style="max-width: 100%">
+    <div class="ion-padding-end details-item-padding">
       <p class="ion-no-margin details-subtitles">Date created</p>
       <p class="ion-no-margin details-content">{{transaction.dateCreated | date:'medium'}}</p>
     </div>

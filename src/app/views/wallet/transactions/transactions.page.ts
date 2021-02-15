@@ -35,10 +35,6 @@ export class TransactionsPage implements OnInit {
     this.location.back();
   }
 
-  transactionClicked(ID: string) {
-
-  }
-
   // A function just to create dummy data
   doubleTransactions(transactions: Array<TransactionsDataModel>, amount: number) {
     let counter = 0;

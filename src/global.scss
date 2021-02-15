@@ -129,3 +129,15 @@ p {
 ion-toolbar {
   --min-height: 40px !important;
 }
+
+ion-content {
+  --ion-background-color: #f5f6f8;
+}
+
+ion-card {
+  --ion-background-color: white;
+}
+
+ion-header::after {
+  background-image: none;
+}

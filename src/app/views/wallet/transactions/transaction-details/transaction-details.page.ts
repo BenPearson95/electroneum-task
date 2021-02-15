@@ -19,12 +19,12 @@ export class TransactionDetailsPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    console.log(this.route);
+    // Get the ID of the transaction from the queryParams, then find
+    // the relevant transaction in the route data.
     this.route.queryParams.subscribe(queryParamResult => {
       this.route.data.subscribe(result => {
             this.transaction = result.endpointData.transactions
               .find(t => t.id === queryParamResult.transactionID);
-            console.log(this.transaction);
       });
     });
   }

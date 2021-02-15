@@ -26,7 +26,6 @@ export class WalletPage {
   ngOnInit() {
     // A resolver is being used, so we need to get the data from the route.
     this.route.data.subscribe(result => {
-      console.log(result.endpointData);
       this.populateDataObjects(result.endpointData);
     })
   }
