@@ -43,7 +43,7 @@ export class WalletPage {
   // A function that grabs the two latest transactions.
   getLatestTransactions() {
     const sortedTransactions = this.transactionsData.sort((a, b) => {
-      return <any>new Date(b.DateCreated) - <any>new Date (a.DateCreated);
+      return <any>new Date(b.dateCreated) - <any>new Date (a.dateCreated);
     });
 
     this.sortedTransactionsData = [

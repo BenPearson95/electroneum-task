@@ -1,6 +1,6 @@
 
 export class SuggestionsModel {
-  public ID: string;
-  public Name: string;
-  public Logo: string;
+  public id: string;
+  public name: string;
+  public logo: string;
 }

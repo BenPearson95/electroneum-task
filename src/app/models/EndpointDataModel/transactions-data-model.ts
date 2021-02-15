@@ -1,16 +1,16 @@
 import { TopUpDataModel } from "./top-up-data-model";
 
 export class TransactionsDataModel {
-  public ID: string;
-  public DestinationAmount: number;
-  public DestinationWallet: string;
-  public SourceWalletAddress: string;
-  public PaymentID: string;
-  public Fee: number;
-  public TxKey: string;
-  public TxHash: string;
-  public PaymentType: number;
-  public Status: number;
-  public DateCreated: Date;
-  public TopUpInfo?: TopUpDataModel;
+  public id: string;
+  public destinationAmount: number;
+  public destinationWallet: string;
+  public sourceWalletAddress: string;
+  public paymentID: string;
+  public fee: number;
+  public txKey: string;
+  public txHash: string;
+  public paymentType: number;
+  public status: number;
+  public dateCreated: Date;
+  public topUpInfo?: TopUpDataModel;
 }

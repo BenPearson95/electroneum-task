@@ -13,7 +13,7 @@ const routes: Routes = [
         loadChildren: () => import('../tab1/tab1.module').then(m => m.Tab1PageModule)
       },
       {
-        path: 'Wallet',
+        path: 'wallet',
         resolve: {
           endpointData: EndpointDataResolver
         },
@@ -25,14 +25,14 @@ const routes: Routes = [
       },
       {
         path: '',
-        redirectTo: '/tabs/Wallet',
+        redirectTo: '/tabs/wallet',
         pathMatch: 'full'
       }
     ]
   },
   {
     path: '',
-    redirectTo: '/tabs/Wallet',
+    redirectTo: '/tabs/wallet',
     pathMatch: 'full'
   }
 ];
