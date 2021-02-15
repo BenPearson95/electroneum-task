@@ -22,11 +22,12 @@ export class TransactionsPage implements OnInit {
     this.route.data.subscribe(result => {
       this.transactionsData = result.endpointData.transactions;
 
-      // A function just to create dummy data
       this.doubleTransactions(result.endpointData.transactions, 0);
 
       
-    })
+    });
+
+    console.log(this.transactionsData);
   }
 
   // Send the user back a page, to the transactions.
@@ -34,6 +35,11 @@ export class TransactionsPage implements OnInit {
     this.location.back();
   }
 
+  transactionClicked(ID: string) {
+
+  }
+
+  // A function just to create dummy data
   doubleTransactions(transactions: Array<TransactionsDataModel>, amount: number) {
     let counter = 0;
     while (counter < amount) {
@@ -42,7 +48,6 @@ export class TransactionsPage implements OnInit {
       });
       counter++;
     }
-    
   }
 
 }

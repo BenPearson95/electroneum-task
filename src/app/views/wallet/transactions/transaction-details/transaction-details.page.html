@@ -1,0 +1,101 @@
+<ion-header>
+  <ion-toolbar color="primary">    
+    <ion-grid class="ion-text-center ion-no-padding">
+      <ion-row>
+        <ion-col>
+          <div (click)="this.closeClicked()">
+            <p class="header-para ion-no-margin">Close</p>
+          </div>
+        </ion-col>
+        <ion-col size="8">
+          <div>
+            <p class="header-para ion-no-margin">Transaction Details</p>
+          </div>
+        </ion-col>
+        <ion-col>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-item-divider class="">
+    <div *ngIf="this.transaction.paymentType === 1"  class="details-title">
+      <h5 class="ion-no-margin">Received {{transaction.destinationAmount}} ETN</h5>
+    </div>
+    <div *ngIf="this.transaction.paymentType === 2" class="details-title">
+      <h5 class="ion-no-margin">Sent {{transaction.destinationAmount}} ETN</h5>
+      <p class="ion-no-margin details-content">Transaction fee: {{transaction.fee}} ETN</p>
+    </div>
+    <div *ngIf="this.transaction.paymentType === 3" class="details-title">
+      <h5 class="ion-no-margin">Top up - {{transaction.topUpInfo.operatorName}} {{transaction.destinationAmount}} ETN</h5>
+    </div>
+  </ion-item-divider>
+
+  <ion-item-divider>
+    <div [ngSwitch]="transaction.status" class="ion-padding-end details-item-padding">
+      <p class="ion-no-margin details-subtitles">
+        Status
+      </p>
+      <div *ngSwitchCase="1" class="">
+        <p class="ion-no-margin transaction-status">
+          <ion-icon class="icon-pending" name="ellipse">
+          </ion-icon>
+          Pending
+        </p>
+      </div>
+      <div *ngSwitchCase="2" class="">
+        <p class="ion-no-margin transaction-status">
+          <ion-icon class="icon-complete" name="ellipse">
+          </ion-icon>
+          Complete
+        </p>
+      </div>
+      <div *ngSwitchCase="3" class="">
+        <p class="ion-no-margin transaction-status">
+          <ion-icon class="icon-failed" name="ellipse">
+          </ion-icon>
+          Failed
+        </p>
+      </div>
+    </div>
+  </ion-item-divider>
+
+  <ion-item-divider *ngIf="this.transaction.paymentType === 2" >
+    <div class="ion-padding-end details-item-padding" style="max-width: 100%">
+      <p class="ion-no-margin details-subtitles">To</p>
+      <p class="ion-no-margin details-content">{{transaction.destinationWallet}}</p>
+    </div>
+  </ion-item-divider>
+
+  <ion-item-divider>
+    <div class="ion-padding-end details-item-padding" style="max-width: 100%">
+      <p class="ion-no-margin details-subtitles">Transaction Hash (TxHash)</p>
+      <p class="ion-no-margin details-content">{{transaction.txHash}}</p>
+    </div>
+  </ion-item-divider>
+
+  <ion-item-divider>
+    <div class="ion-padding-end details-item-padding" style="max-width: 100%">
+      <p class="ion-no-margin details-subtitles">Tx Private Key</p>
+      <p class="ion-no-margin details-content">{{transaction.txKey}}</p>
+      <ion-button color="primary" class="button-outline ion-text-capitalize">Prove sending</ion-button>
+    </div>
+  </ion-item-divider>
+
+  <ion-item-divider>
+    <div class="ion-padding-end details-item-padding" style="max-width: 100%">
+      <p class="ion-no-margin details-subtitles">Payment ID</p>
+      <p class="ion-no-margin details-content">{{transaction.id}}</p>
+    </div>
+  </ion-item-divider>
+
+  <ion-item-divider>
+    <div class="ion-padding-end details-item-padding" style="max-width: 100%">
+      <p class="ion-no-margin details-subtitles">Date created</p>
+      <p class="ion-no-margin details-content">{{transaction.dateCreated | date:'medium'}}</p>
+    </div>
+  </ion-item-divider>
+</ion-content>

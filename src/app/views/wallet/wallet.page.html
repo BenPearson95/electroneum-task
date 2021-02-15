@@ -58,20 +58,23 @@
 <ion-content [fullscreen]="true">
   
   <!--Transactions Start-->
-  <ion-grid class="sub-header-grid">
-    <ion-row>
-      <ion-col>
-        <div class="ion-text-uppercase">
-          <span class="sub-titles">Transactions</span>
-        </div>
-        
-      </ion-col>
-      <ion-col class="ion-text-end">
-        <ion-icon [routerLink]="['transactions']" name="arrow-forward-outline">
-      </ion-icon>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+  
+  <ion-item-divider>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <div class="ion-text-uppercase">
+            <span class="sub-titles">Transactions</span>
+          </div>
+          
+        </ion-col>
+        <ion-col class="ion-text-end">
+          <ion-icon [routerLink]="['transactions']" name="arrow-forward-outline">
+        </ion-icon>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-item-divider>
 
   <ion-card *ngFor="let transaction of this.sortedTransactionsData" >
     <ion-card-content>
@@ -117,22 +120,25 @@
       </div>
     </ion-card-content>
   </ion-card>
+  
   <!--Transactions End-->
 
   <!--Pay With ETN Start-->
-  <ion-grid class="sub-header-grid">
-    <ion-row>
-      <ion-col>
-        <div class="ion-text-uppercase">
-          <span class="sub-titles">Pay With ETN</span>
-        </div>
-        
-      </ion-col>
-      <ion-col class="ion-text-end">
-        <ion-icon name="help-circle-outline"></ion-icon>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+  <ion-item-divider>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <div class="ion-text-uppercase">
+            <span class="sub-titles">Pay With ETN</span>
+          </div>
+          
+        </ion-col>
+        <ion-col class="ion-text-end">
+          <ion-icon name="help-circle-outline"></ion-icon>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-item-divider>
 
   <div>
     <ion-grid class="ion-no-padding">
